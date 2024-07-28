@@ -33,8 +33,13 @@ class Education(BaseModel):
     location: str
     projects: Optional[List[str]] = None
 
+class JobSpecificInfo(BaseModel):
+    company: str
+    job_title: str
+
 class Resume(BaseModel):
     personal_info: PersonalInfo
+    job_specific_info: Optional[JobSpecificInfo] = None
     summary: str
     technical_skills: Dict[str, List[str]]
     work_experience: List[WorkExperience]

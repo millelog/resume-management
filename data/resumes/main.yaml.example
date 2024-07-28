@@ -7,6 +7,10 @@ personal_info:
   linkedin: https://www.linkedin.com/in/johndoe
   portfolio: https://example.com
 
+job_specific_info:
+  company: Innovative Tech Solutions
+  job_title: Senior Software Engineer
+
 summary: >
   Experienced software engineer with expertise in web development and cloud technologies.
   Strong problem-solving skills and a track record of delivering high-quality solutions.

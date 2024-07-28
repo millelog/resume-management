@@ -5,6 +5,7 @@ import webbrowser
 from jinja2 import Environment, FileSystemLoader
 from src.models.resume import Resume
 from src.utils.date_formatter import format_date
+from src.utils.add_tracking import add_tracking_filter
 
 class ResumeGenerator:
     def __init__(self, template_path: str):
@@ -12,6 +13,7 @@ class ResumeGenerator:
         self.template_file = os.path.basename(template_path)
         self.env = Environment(loader=FileSystemLoader(self.template_dir))
         self.env.filters['format_date'] = format_date
+        self.env.filters['add_tracking'] = add_tracking_filter
         self.template = self.env.get_template(self.template_file)
 
     def generate_html(self, resume: Resume) -> str:

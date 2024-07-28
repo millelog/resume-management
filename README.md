@@ -126,6 +126,37 @@ Modify the html files in `templates/` to change the layout and styling of your r
 - `src/utils/date_formatter.py`: Provides date formatting utilities.
 - `src/utils/yaml_handler.py`: Manages YAML file reading and parsing.
 
+## Tracking and Analytics
+
+This system includes a feature to track the source of portfolio visits originating from your resume. Here's how it works:
+
+### Portfolio Link Tracking
+
+- When generating a resume, the system automatically adds a tracking parameter to your portfolio link.
+- The parameter format is: `?rs=companyname_jobtitle`
+- Example: If applying for a "Senior Developer" position at "TechCorp", your portfolio link might look like:
+  ```
+  https://your-portfolio.com/?rs=techcorp_seniordeveloper
+  ```
+
+### Responsibility Link Tracking
+
+- The system also adds the same tracking parameter to any links in your responsibilities that match your portfolio URL.
+- This allows you to track which specific achievements or projects are drawing attention.
+
+### Using the Tracking Data
+
+- Set up your portfolio website to handle these `rs` parameters.
+- Use web analytics tools to track visits with these parameters.
+- This data can help you understand which job applications are driving traffic to your portfolio and which specific achievements are of most interest to potential employers.
+
+### Privacy Consideration
+
+- Be aware that this tracking method makes your resume tailored to each application.
+- Ensure you're comfortable with this level of tracking before using this feature.
+
+To disable this feature, you can modify the `add_tracking_filter` function in `src/utils/add_tracking.py`.
+
 ## Contributing
 
 Contributions to improve the Resume Management System are welcome. Please follow these steps:
