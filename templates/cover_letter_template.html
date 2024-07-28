@@ -56,17 +56,17 @@
 <body>
     <h1>{{ personal_info.name }}</h1>
     <div class="contact-info">
-        <span><a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a></span>
-        <span><a href="tel:{{ personal_info.phone }}">{{ personal_info.phone }}</a></span>
+        <span><a href="mailto:{{ personal_info.email }}" target="_blank" rel="noopener noreferrer">{{ personal_info.email }}</a></span>
+        <span><a href="tel:{{ personal_info.phone }}" target="_blank" rel="noopener noreferrer">{{ personal_info.phone }}</a></span>
         <span>{{ personal_info.location }}</span>
         {% if personal_info.github %}
-        <span><a href="{{ personal_info.github }}">GitHub</a></span>
+        <span><a href="{{ personal_info.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></span>
         {% endif %}
         {% if personal_info.linkedin %}
-        <span><a href="{{ personal_info.linkedin }}">LinkedIn</a></span>
+        <span><a href="{{ personal_info.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
         {% endif %}
         {% if personal_info.portfolio %}
-        <span><a href="{{ personal_info.portfolio }}">Portfolio</a></span>
+        <span><a href="{{ personal_info.portfolio }}" target="_blank" rel="noopener noreferrer">Portfolio</a></span>
         {% endif %}
     </div>
     <hr>
