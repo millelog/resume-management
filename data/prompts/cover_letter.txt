@@ -1,1 +1,16 @@
-Attached are the job description and my experience. Identify the most important skills and requirements from the job description and pick the most relevant examples of those from my experience. Write a short, concise, and impactful cover letter. Skip niceties and immediately explain why I'm perfect for this role. Keep it sounding natural and don't just list things though. Be persuasive and not too purple. Generate it as a YAML file under the singular field `content: |`
+Cover Letter Prompt:
+
+Analyze the job description and candidate's experience, then:
+
+1. Identify key skills and requirements from the job description.
+2. Select relevant experiences that match these requirements, focusing on aspects not explicitly stated in the resume.
+3. Write a concise, impactful cover letter that:
+   - Immediately highlights why the candidate is ideal for the role
+   - Uses paragraph form to create a flowing narrative
+   - Draws unique connections between the candidate's experience and the job requirements
+   - Provides context or insights not apparent from the resume alone
+   - Sounds natural and persuasive
+   - Maintains a professional tone without being overly flowery
+4. Generate the cover letter as a YAML file with the content under the field `content: |`
+
+Aim for a compelling story that reveals new dimensions of the candidate's fit for the position. Focus on unique angles, soft skills, or specific experiences that demonstrate value beyond what's listed in the resume. Each paragraph should offer fresh insights that complement, rather than reiterate, the resume content.

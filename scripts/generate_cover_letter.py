@@ -18,8 +18,17 @@ from src.models.cover_letter import CoverLetter
 from src.models.resume import PersonalInfo
 
 def load_yaml(file_path):
-    with open(file_path, 'r') as file:
-        return yaml.safe_load(file)
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read().splitlines()
+            return yaml.safe_load('\n'.join(content))
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML file {file_path}: {e}")
+        if hasattr(e, 'problem_mark'):
+            mark = e.problem_mark
+            print(f"Error position: line {mark.line + 1}, column {mark.column + 1}")
+            print(f"Problematic line: {content[mark.line]}")
+        return None
 
 def get_most_recent_yaml(directory):
     yaml_files = list(Path(directory).glob('*.yaml'))
@@ -33,8 +42,8 @@ def main():
     parser.add_argument("-o", "--output", help="Path to the output HTML file")
     parser.add_argument("-t", "--template", default="templates/cover_letter_template.html", 
                         help="Path to the HTML template file")
-    parser.add_argument("-m", "--master", default="data/resumes/master.yaml",
-                        help="Path to the master resume YAML file")
+    parser.add_argument("-m", "--main", default="data/resumes/main.yaml",
+                        help="Path to the main resume YAML file")
     args = parser.parse_args()
 
     # If no input file is specified, use the most recent YAML file
@@ -48,9 +57,9 @@ def main():
         print(f"Error: Input file '{args.input}' does not exist.")
         return
 
-    # Ensure the master resume file exists
-    if not os.path.isfile(args.master):
-        print(f"Error: Master resume file '{args.master}' does not exist.")
+    # Ensure the main resume file exists
+    if not os.path.isfile(args.main):
+        print(f"Error: main resume file '{args.main}' does not exist.")
         return
 
     # Set default output path if not provided
@@ -66,9 +75,13 @@ def main():
         cover_letter_data = load_yaml(args.input)
         cover_letter = CoverLetter(**cover_letter_data)
         
-        # Load the personal info from the master resume YAML
-        master_data = load_yaml(args.master)
-        personal_info = PersonalInfo(**master_data['personal_info'])
+        # Load the personal info from the main resume YAML
+        main_data = load_yaml(args.main)
+        if main_data and 'personal_info' in main_data:
+            personal_info = PersonalInfo(**main_data['personal_info'])
+        else:
+            print(f"Error: Could not find 'personal_info' in {args.main}")
+            return
         
         # Set up Jinja2 environment
         env = Environment(loader=FileSystemLoader(os.path.dirname(args.template)))

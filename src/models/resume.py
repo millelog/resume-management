@@ -21,6 +21,8 @@ class WorkExperience(BaseModel):
     start_date: date
     end_date: Optional[date]
     location: str
+    employment_type: Optional[str] = None
+
 
 class Education(BaseModel):
     institution: str

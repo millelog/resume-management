@@ -1,31 +1,23 @@
-# Resume Optimization Systems Prompt
+Resume Optimization Prompt:
 
-Your task is to generate an optimized version of the provided main.yaml resume file based on the given job description. Follow these guidelines:
+1. Analyze the job description for key skills and qualifications.
 
-1. Analyze the job description thoroughly, identifying key skills, experiences, and qualifications sought.
+2. Select relevant experiences and skills from the main.yaml file.
 
-2. Review the main.yaml file and select the most relevant experiences, skills, and accomplishments that align with the job requirements.
+3. Rewrite the summary to be concise, impactful, and relevant to the role.
 
-3. Rewrite the summary to highlight the candidate's most relevant qualifications for this specific role. The summary should be short, concise, and impactful.
+4. Prioritize work experiences most relevant to the job.
 
-4. Prioritize and reorder work experiences, emphasizing those most relevant to the job description.
+5. For each experience:
+   - Select the most relevant responsibilities without changing their wording.
+   - Ensure accuracy and truthfulness.
 
-5. For each selected work experience:
-   - Keep the most relevant responsibilities.
-   - Ensure you adhere to the truth and stay grounded in the reference materials.
-   - Don't be too generic, make it sound personal and real. 
-   - Explain fully where necessary but be concise where you can be.
+6. Adjust technical skills to prioritize those relevant to the job.
 
-6. Adjust the technical skills section to prioritize those mentioned in or relevant to the job description.
+7. Emphasize relevant education projects.
 
-7. If the education section includes projects, emphasize those most relevant to the role.
+8. Maintain the YAML structure and include all positions for each experience.
 
-8. Maintain the overall structure of the YAML file.
+9. Fit the resume on one page.
 
-9. Ensure the optimized resume remains truthful and accurately represents the candidate's experience.
-
-11. Always include all positions for each work experience, even if you don't add any responsibilities for a particular position on the resume.
-
-12. Fit all of this on one page.
-
-Provide the optimized YAML file as your output, ready for the candidate to use in their application.
+Provide the optimized YAML file as output.

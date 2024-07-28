@@ -38,6 +38,7 @@ work_experience:
     start_date: 2018-01-01
     end_date: 
     location: Anytown, USA
+    employment_type: Full-time
     positions:
       - title: Senior Software Engineer
         start_date: 2020-06-01
@@ -56,10 +57,11 @@ work_experience:
     start_date: 2015-06-01
     end_date: 2017-12-31
     location: Another City, USA
+    employment_type: Part-time
     positions:
       - title: Junior Developer
-        start_date: 2015-06-01
-        end_date: 2017-12-31
+        start_date:
+        end_date:
         responsibilities:
           - Assisted in front-end development using React
           - Collaborated on API design and implementation

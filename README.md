@@ -21,7 +21,7 @@ This Resume Management System is a Python-based tool designed to generate and ma
 resume-management-system/
 ├── data/
 │   ├── resumes/
-│   │   └── master.yaml
+│   │   └── main.yaml
 │   ├── letters/
 │   │   └── microsoft_software_engineer.yaml
 │   └── prompts/
@@ -65,13 +65,13 @@ resume-management-system/
    ```
 ## Usage
 
-1. Maintain your master resume data:
-   Copy `data/resumes/master.yaml.example` to `data/resumes/master.yaml` and keep it updated with your comprehensive personal information, work experience, education, and skills. This serves as your "source of truth" for all resume variations so make it quite extensive.
+1. Maintain your main resume data:
+   Copy `data/resumes/main.yaml.example` to `data/resumes/main.yaml` and keep it updated with your comprehensive personal information, work experience, education, and skills. This serves as your "source of truth" for all resume variations so make it quite extensive.
 
 2. Prepare job-specific resume data:
    a. Obtain the job description for the position you're applying to.
    b. Use an LLM (like ChatGPT) with the prompt found in `data/prompts/resume.txt`.
-   c. Provide the LLM with the job description and your `master.yaml` content.
+   c. Provide the LLM with the job description and your `main.yaml` content.
    d. The LLM will generate an optimized YAML for the specific job.
    e. Save this optimized YAML as `data/resumes/job_specific_resume.yaml`.
 
@@ -82,7 +82,7 @@ resume-management-system/
 
 4. Prepare job-specific cover letter data:
    a. Use an LLM with the prompt found in `data/prompts/cover_letter.txt`.
-   b. Provide the LLM with the job description and relevant details from your `master.yaml`.
+   b. Provide the LLM with the job description and relevant details from your `main.yaml`.
    c. The LLM will generate cover letter content.
    d. Save this content as `data/cover_letters/job_specific_cover_letter.yaml` (see example `data/cover_letters/cover_letter.yaml.example).
 
@@ -110,11 +110,11 @@ Note: The `data/prompts/` directory contains various prompts for different aspec
 
 ### Content
 
-Edit the YAML files in `data/resumes/` to update your resume and cover letter content. You can create multiple YAML files for different versions.
+Edit the YAML files in `data/resumes/` or `data/cover_letters/` to update your resume and cover letter content. You can create multiple YAML files for different versions.
 
 ### Templates
 
-Modify the `templates/*.html` files to change the layout and styling of your resume or cover letter. The template uses Jinja2 syntax for dynamic content insertion.
+Modify the html files in `templates/` to change the layout and styling of your resume or cover letter. The template uses Jinja2 syntax for dynamic content insertion.
 
 ### Python Code
 

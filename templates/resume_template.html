@@ -27,7 +27,7 @@
             color: #1F497D;
             font-size: 12pt;
             border-bottom: 1px solid #1F497D;
-            margin: 15px 0 5px 0;
+            margin: 5px 0 5px 0;
             padding-bottom: 2px;
         }
         .contact-info {
@@ -40,7 +40,7 @@
             color: #1F497D;
         }
         .section {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .job {
             margin-bottom: 8px;
@@ -59,11 +59,11 @@
             font-size: 11pt;
         }
         ul {
-            margin: 5px 0;
+            margin: 3px 0 5px 0;
             padding-left: 20px;
         }
         li {
-            margin-bottom: 3px;
+            margin-bottom: 0px;
         }
         a {
             color: #1F497D;
@@ -72,7 +72,7 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 5px;
+            gap: 2px;
             margin-top: 5px;
         }
         .skills-category {
@@ -120,7 +120,7 @@
     {% for job in work_experience %}
     <div class="job">
         <div class="job-header">
-            <span>{{ job.company }}</span>
+            <span>{{ job.company }}{% if job.employment_type %} ({{ job.employment_type }}){% endif %}</span>
             <span>{{ job.start_date|format_date }} – {{ job.end_date|format_date }}</span>
         </div>
         {% for position in job.positions %}
