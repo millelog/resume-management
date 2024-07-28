@@ -66,7 +66,7 @@
         <span><a href="{{ personal_info.linkedin }}" target="_blank">LinkedIn</a></span>
         {% endif %}
         {% if personal_info.portfolio %}
-        <span><a href="{{ personal_info.portfolio }}{% if job_specific_info %}?rs={{ job_specific_info.company | replace(' ', '') | lower }}_{{ job_specific_info.job_title | replace(' ', '') | lower }}{% endif %}" target="_blank">Portfolio</a></span>
+        <span><a href="{{ personal_info.portfolio }}{% if app_specific_info %}?rs={{ app_specific_info.company | replace(' ', '') | lower }}_{{ app_specific_info.job_title | replace(' ', '') | lower }}{% endif %}" target="_blank">Portfolio</a></span>
         {% endif %}
     </div>
     <hr>

@@ -39,7 +39,7 @@ class JobSpecificInfo(BaseModel):
 
 class Resume(BaseModel):
     personal_info: PersonalInfo
-    job_specific_info: Optional[JobSpecificInfo] = None
+    app_specific_info: Optional[JobSpecificInfo] = None
     summary: str
     technical_skills: Dict[str, List[str]]
     work_experience: List[WorkExperience]

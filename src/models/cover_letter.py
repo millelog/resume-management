@@ -10,4 +10,4 @@ class JobSpecificInfo(BaseModel):
     
 class CoverLetter(BaseModel):
     content: str
-    job_specific_info: Optional[JobSpecificInfo] = None
+    app_specific_info: Optional[JobSpecificInfo] = None

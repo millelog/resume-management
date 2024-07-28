@@ -91,7 +91,7 @@ def main():
         html_content = template.render(
             content=cover_letter.content,
             personal_info=personal_info,
-            job_specific_info=cover_letter.job_specific_info
+            app_specific_info=cover_letter.app_specific_info
         )
         
         # Write the HTML to file

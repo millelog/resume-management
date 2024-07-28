@@ -14,7 +14,7 @@ Analyze the job description and candidate's experience, then:
 4. Generate the cover letter as a YAML file with the following structure:
 
 ```yaml
-job_specific_info:
+app_specific_info:
   company: [Company Name]
   job_title: [Job Title]
 

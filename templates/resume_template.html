@@ -102,7 +102,7 @@
         <span><a href="{{ personal_info.linkedin }}" target="_blank">LinkedIn</a></span>
         {% endif %}
         {% if personal_info.portfolio %}
-        <span><a href="{{ personal_info.portfolio }}{% if job_specific_info %}?rs={{ job_specific_info.company | replace(' ', '') | lower }}_{{ job_specific_info.job_title | replace(' ', '') | lower }}{% endif %}" target="_blank">Portfolio</a></span>
+        <span><a href="{{ personal_info.portfolio }}{% if app_specific_info %}?rs={{ app_specific_info.company | replace(' ', '') | lower }}_{{ app_specific_info.job_title | replace(' ', '') | lower }}{% endif %}" target="_blank">Portfolio</a></span>
         {% endif %}
     </div>
     <hr>
@@ -133,7 +133,7 @@
         {% if position.responsibilities %}
             <ul>
                 {% for responsibility in position.responsibilities %}
-                <li class="responsibility">{{ responsibility|add_tracking(personal_info.portfolio, job_specific_info)|safe }}</li>
+                <li class="responsibility">{{ responsibility|add_tracking(personal_info.portfolio, app_specific_info)|safe }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
