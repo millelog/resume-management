@@ -7,7 +7,8 @@ class PersonalInfo(BaseModel):
     email: str
     phone: str
     location: str
-    github: HttpUrl
+    github: Optional[HttpUrl]
+    linkedin: Optional[HttpUrl]
 
 class Position(BaseModel):
     title: str

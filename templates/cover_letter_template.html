@@ -45,16 +45,15 @@
 <body>
     <h1>{{ personal_info.name }}</h1>
     <div class="contact-info">
-        <span>{{ personal_info.email }}</span>
-        <span>{{ personal_info.phone }}</span>
+        <span><a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a></span>
+        <span><a href="tel:{{ personal_info.phone }}">{{ personal_info.phone }}</a></span>
         <span>{{ personal_info.location }}</span>
-        <span><a href="{{ personal_info.github }}">
-        {%- if personal_info.github.host and personal_info.github.path -%}
-          {{ personal_info.github.host + personal_info.github.path }}
-        {%- else -%}
-          {{ personal_info.github }}
-        {%- endif -%}
-        </a></span>
+        {% if personal_info.github %}
+        <span><a href="{{ personal_info.github }}">GitHub</a></span>
+        {% endif %}
+        {% if personal_info.linkedin %}
+        <span><a href="{{ personal_info.linkedin }}">LinkedIn</a></span>
+        {% endif %}
     </div>
     <hr>
     <div class="content">

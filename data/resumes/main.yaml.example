@@ -4,6 +4,7 @@ personal_info:
   phone: (555) 123-4567
   location: Anytown, USA
   github: https://github.com/johndoe
+  linkedin: https://www.linkedin.com/in/johndoe
 
 summary: >
   Experienced software engineer with expertise in web development and cloud technologies.
