@@ -66,7 +66,7 @@ resume-management-system/
 ## Usage
 
 1. Maintain your master resume data:
-   Open `data/resumes/master.yaml` and keep it updated with your comprehensive personal information, work experience, education, and skills. This serves as your "source of truth" for all resume variations.
+   Copy `data/resumes/master.yaml.example` to `data/resumes/master.yaml` and keep it updated with your comprehensive personal information, work experience, education, and skills. This serves as your "source of truth" for all resume variations so make it quite extensive.
 
 2. Prepare job-specific resume data:
    a. Obtain the job description for the position you're applying to.
@@ -84,7 +84,7 @@ resume-management-system/
    a. Use an LLM with the prompt found in `data/prompts/cover_letter.txt`.
    b. Provide the LLM with the job description and relevant details from your `master.yaml`.
    c. The LLM will generate cover letter content.
-   d. Save this content as `data/cover_letters/job_specific_cover_letter.yaml`.
+   d. Save this content as `data/cover_letters/job_specific_cover_letter.yaml` (see example `data/cover_letters/cover_letter.yaml.example).
 
 5. Generate your tailored cover letter:
    ```

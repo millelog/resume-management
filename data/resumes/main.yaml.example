@@ -1,0 +1,74 @@
+personal_info:
+  name: John Doe
+  email: john.doe@example.com
+  phone: (555) 123-4567
+  location: Anytown, USA
+  github: https://github.com/johndoe
+
+summary: >
+  Experienced software engineer with expertise in web development and cloud technologies.
+  Strong problem-solving skills and a track record of delivering high-quality solutions.
+
+technical_skills:
+  Languages:
+    - JavaScript
+    - Python
+    - Java
+  Frameworks/Libraries:
+    - React
+    - Django
+    - Spring Boot
+  Technologies:
+    - Docker
+    - Kubernetes
+    - Git
+  Cloud Platforms:
+    - AWS
+    - Google Cloud Platform
+  Database:
+    - PostgreSQL
+    - MongoDB
+  Other:
+    - Agile Methodologies
+    - CI/CD
+    - RESTful APIs
+
+work_experience:
+  - company: Tech Solutions Inc.
+    start_date: 2018-01-01
+    end_date: 
+    location: Anytown, USA
+    positions:
+      - title: Senior Software Engineer
+        start_date: 2020-06-01
+        end_date: 
+        responsibilities:
+          - Led development of cloud-native applications
+          - Mentored junior developers and improved team processes
+      - title: Software Engineer
+        start_date: 2018-01-01
+        end_date: 2020-05-31
+        responsibilities:
+          - Developed and maintained web applications
+          - Implemented automated testing and deployment pipelines
+
+  - company: StartUp Innovations
+    start_date: 2015-06-01
+    end_date: 2017-12-31
+    location: Another City, USA
+    positions:
+      - title: Junior Developer
+        start_date: 2015-06-01
+        end_date: 2017-12-31
+        responsibilities:
+          - Assisted in front-end development using React
+          - Collaborated on API design and implementation
+
+education:
+  institution: University of Technology
+  degree: Bachelor of Science in Computer Science
+  graduation_date: 2015-05-15
+  location: College Town, USA
+  projects:
+    - Developed a machine learning model for predictive analysis
+    - Created a mobile app for campus event management
