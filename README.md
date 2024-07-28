@@ -20,8 +20,10 @@ resume-management-system/
 ├── data/
 │   ├── resumes/
 │   │   └── logan_miller.yaml
-│   └── schemas/
-│       └── resume_schema.py
+│   ├── letters/
+│   │   └── microsoft_software_engineer.yaml
+│   └── prompts/
+│       └── experience.txt
 ├── src/
 │   ├── generators/
 │   │   └── resume_generator.py
@@ -69,9 +71,11 @@ resume-management-system/
    python scripts/generate_resume.py data/resumes/logan_miller.yaml
    ```
 
-3. Find your generated HTML resume in the `output/` directory.
+3. Generate your cover letter, defaults to most recently added yaml file, otherwise you can specify:
+   ```
+   python scripts/generate_cover_letter.py
+   ```
 
-4. Open the HTML file in a web browser to view your resume. You can use the browser's print function to save it as a PDF.
 
 ## Customization
 

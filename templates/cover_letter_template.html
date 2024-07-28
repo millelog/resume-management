@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ personal_info.name.replace(" ", "_") }}_cover_letter</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.2;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 10pt;
+        }
+        h1 {
+            color: #1F497D;
+            margin: 0 0 5px 0;
+            font-size: 18pt;
+        }
+        .contact-info {
+            margin-bottom: 5px;
+            font-size: 11pt;
+        }
+        .contact-info span:not(:last-child)::after {
+            content: "•";
+            margin: 0 5px;
+            color: #1F497D;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #1F497D;
+            margin: 5px 0 15px 0;
+        }
+        .content {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ personal_info.name }}</h1>
+    <div class="contact-info">
+        <span>{{ personal_info.email }}</span>
+        <span>{{ personal_info.phone }}</span>
+        <span>{{ personal_info.location }}</span>
+        <span><a href="{{ personal_info.github }}">
+        {%- if personal_info.github.host and personal_info.github.path -%}
+          {{ personal_info.github.host + personal_info.github.path }}
+        {%- else -%}
+          {{ personal_info.github }}
+        {%- endif -%}
+        </a></span>
+    </div>
+    <hr>
+    <div class="content">
+        {{ content }}
+    </div>
+</body>
+</html>
