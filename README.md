@@ -19,7 +19,7 @@ This Resume Management System is a Python-based tool designed to generate and ma
 resume-management-system/
 ├── data/
 │   ├── resumes/
-│   │   └── logan_miller_resume.yaml
+│   │   └── logan_miller.yaml
 │   └── schemas/
 │       └── resume_schema.py
 ├── src/
@@ -62,11 +62,11 @@ resume-management-system/
 ## Usage
 
 1. Edit your resume data:
-   Open `data/resumes/logan_miller_resume.yaml` and update it with your personal information, work experience, education, and skills.
+   Open `data/resumes/logan_miller.yaml` and update it with your personal information, work experience, education, and skills.
 
 2. Generate your resume:
    ```
-   python scripts/generate_resume.py data/resumes/logan_miller_resume.yaml
+   python scripts/generate_resume.py data/resumes/logan_miller.yaml
    ```
 
 3. Find your generated HTML resume in the `output/` directory.
