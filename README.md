@@ -21,11 +21,11 @@ This Resume Management System is a Python-based tool designed to generate and ma
 resume-management-system/
 ├── data/
 │   ├── resumes/
-│   │   └── logan_miller.yaml
+│   │   └── master.yaml
 │   ├── letters/
 │   │   └── microsoft_software_engineer.yaml
 │   └── prompts/
-│       └── experience.txt
+│       └── resume.txt
 ├── src/
 │   ├── generators/
 │   │   └── resume_generator.py
@@ -37,6 +37,7 @@ resume-management-system/
 ├── templates/
 │   └── resume_template.html
 ├── scripts/
+│   ├── generate_cover_letter.py
 │   └── generate_resume.py
 ├── output/
 │   └── .gitkeep
@@ -62,32 +63,58 @@ resume-management-system/
    ```
    pip install -r requirements.txt
    ```
-
 ## Usage
 
-1. Edit your resume data:
-   Open `data/resumes/logan_miller.yaml` and update it with your personal information, work experience, education, and skills.
+1. Maintain your master resume data:
+   Open `data/resumes/master.yaml` and keep it updated with your comprehensive personal information, work experience, education, and skills. This serves as your "source of truth" for all resume variations.
 
-2. Generate your resume:
+2. Prepare job-specific resume data:
+   a. Obtain the job description for the position you're applying to.
+   b. Use an LLM (like ChatGPT) with the prompt found in `data/prompts/resume.txt`.
+   c. Provide the LLM with the job description and your `master.yaml` content.
+   d. The LLM will generate an optimized YAML for the specific job.
+   e. Save this optimized YAML as `data/resumes/job_specific_resume.yaml`.
+
+3. Generate your tailored resume:
    ```
-   python scripts/generate_resume.py data/resumes/logan_miller.yaml
+   python scripts/generate_resume.py data/resumes/job_specific_resume.yaml
    ```
 
-3. Generate your cover letter, defaults to most recently added yaml file, otherwise you can specify:
-   ```
-   python scripts/generate_cover_letter.py
-   ```
+4. Prepare job-specific cover letter data:
+   a. Use an LLM with the prompt found in `data/prompts/cover_letter.txt`.
+   b. Provide the LLM with the job description and relevant details from your `master.yaml`.
+   c. The LLM will generate cover letter content.
+   d. Save this content as `data/cover_letters/job_specific_cover_letter.yaml`.
 
+5. Generate your tailored cover letter:
+   ```
+   python scripts/generate_cover_letter.py data/cover_letters/job_specific_cover_letter.yaml
+   ```
+   If no file is specified, it defaults to the most recently added YAML file in the cover_letters directory.
+
+6. Review and edit the generated HTML files:
+   Open the generated HTML files in your browser to review. Make any necessary adjustments directly in the respective YAML files and regenerate if needed.
+
+7. Print to PDF:
+   a. Open the final HTML files in a web browser.
+   b. Use the browser's print function (usually Ctrl+P or Cmd+P).
+   c. Set the destination to "Save as PDF".
+   d. Adjust margins if necessary (usually "None" works best).
+   e. Save the PDF files of your resume and cover letter.
+
+Your tailored resume and cover letter are now ready for submission!
+
+Note: The `data/prompts/` directory contains various prompts for different aspects of the resume and cover letter generation process. Feel free to adjust these prompts to better suit your needs or to generate other job application materials.
 
 ## Customization
 
-### Resume Content
+### Content
 
-Edit the YAML file in `data/resumes/` to update your resume content. You can create multiple YAML files for different versions of your resume.
+Edit the YAML files in `data/resumes/` to update your resume and cover letter content. You can create multiple YAML files for different versions.
 
-### Resume Template
+### Templates
 
-Modify the `templates/resume_template.html` file to change the layout and styling of your resume. The template uses Jinja2 syntax for dynamic content insertion.
+Modify the `templates/*.html` files to change the layout and styling of your resume or cover letter. The template uses Jinja2 syntax for dynamic content insertion.
 
 ### Python Code
 

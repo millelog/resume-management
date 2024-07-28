@@ -4,6 +4,7 @@
 import os
 import sys
 import argparse
+import webbrowser
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 import yaml
@@ -14,6 +15,7 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, project_root)
 
 from src.models.cover_letter import CoverLetter
+from src.models.resume import PersonalInfo
 
 def load_yaml(file_path):
     with open(file_path, 'r') as file:
@@ -26,11 +28,13 @@ def get_most_recent_yaml(directory):
     return max(yaml_files, key=os.path.getmtime)
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate a cover letter from YAML data.")
+    parser = argparse.ArgumentParser(description="Generate a cover letter from YAML data and open in browser.")
     parser.add_argument("input", nargs='?', help="Path to the input YAML file (optional)")
     parser.add_argument("-o", "--output", help="Path to the output HTML file")
     parser.add_argument("-t", "--template", default="templates/cover_letter_template.html", 
                         help="Path to the HTML template file")
+    parser.add_argument("-m", "--master", default="data/resumes/master.yaml",
+                        help="Path to the master resume YAML file")
     args = parser.parse_args()
 
     # If no input file is specified, use the most recent YAML file
@@ -44,6 +48,11 @@ def main():
         print(f"Error: Input file '{args.input}' does not exist.")
         return
 
+    # Ensure the master resume file exists
+    if not os.path.isfile(args.master):
+        print(f"Error: Master resume file '{args.master}' does not exist.")
+        return
+
     # Set default output path if not provided
     if args.output is None:
         input_path = Path(args.input)
@@ -54,21 +63,29 @@ def main():
 
     try:
         # Load the cover letter data from YAML
-        yaml_data = load_yaml(args.input)
-        cover_letter = CoverLetter(**yaml_data)
+        cover_letter_data = load_yaml(args.input)
+        cover_letter = CoverLetter(**cover_letter_data)
+        
+        # Load the personal info from the master resume YAML
+        master_data = load_yaml(args.master)
+        personal_info = PersonalInfo(**master_data['personal_info'])
         
         # Set up Jinja2 environment
         env = Environment(loader=FileSystemLoader(os.path.dirname(args.template)))
         template = env.get_template(os.path.basename(args.template))
         
         # Render the HTML
-        html_content = template.render(content=cover_letter.content)
+        html_content = template.render(content=cover_letter.content, personal_info=personal_info)
         
         # Write the HTML to file
         with open(args.output, 'w') as f:
             f.write(html_content)
         
         print(f"Cover letter generated successfully: {args.output}")
+        
+        # Open the generated HTML file in the default browser
+        webbrowser.open('file://' + os.path.realpath(args.output))
+        print("Cover letter opened in your default web browser.")
     except Exception as e:
         print(f"Error generating cover letter: {e}")
 
