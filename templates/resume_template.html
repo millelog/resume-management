@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ personal_info.name.replace(" ", "_") }}_Resume</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.2;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 10pt;
+        }
+        h1 {
+            color: #1F497D;
+            margin: 0 0 5px 0;
+            font-size: 18pt;
+        }
+        h2 {
+            color: #1F497D;
+            font-size: 12pt;
+            border-bottom: 1px solid #1F497D;
+            margin: 15px 0 5px 0;
+            padding-bottom: 2px;
+        }
+        .contact-info {
+            margin-bottom: 5px;
+            font-size: 11pt;
+        }
+        .contact-info span:not(:last-child)::after {
+            content: "•";
+            margin: 0 5px;
+            color: #1F497D;
+        }
+        .section {
+            margin-bottom: 10px;
+        }
+        .job {
+            margin-bottom: 8px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        .job-subheader {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+        }
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        a {
+            color: #1F497D;
+            text-decoration: none;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .skills-category {
+            font-weight: bold;
+        }
+        .responsibility a {
+            color: inherit;
+            text-decoration: underline;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #1F497D;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ personal_info.name }}</h1>
+    <div class="contact-info">
+        <span>{{ personal_info.email }}</span>
+        <span>{{ personal_info.phone }}</span>
+        <span>{{ personal_info.location }}</span>
+        <span><a href="{{ personal_info.github }}">
+        {%- if personal_info.github.host and personal_info.github.path -%}
+          {{ personal_info.github.host + personal_info.github.path }}
+        {%- else -%}
+          {{ personal_info.github }}
+        {%- endif -%}
+        </a></span>
+    </div>
+    <hr>
+
+    <div class="section">
+        {{ summary }}
+    </div>
+
+    <h2>TECHNICAL SKILLS</h2>
+    <div class="skills-grid">
+        {% for category, skills in technical_skills.items() %}
+        <div><span class="skills-category">{{ category }}:</span> {{ skills|join(', ') }}</div>
+        {% endfor %}
+    </div>
+
+    <h2>WORK EXPERIENCE</h2>
+    {% for job in work_experience %}
+    <div class="job">
+        <div class="job-header">
+            <span>{{ job.company }}</span>
+            <span>{{ job.start_date|format_date }} – {{ job.end_date|format_date }}</span>
+        </div>
+        {% for position in job.positions %}
+        <div class="job-subheader">
+            <span>{{ position.title }}{% if position.start_date %} | {{ position.start_date|format_date }} – {{ position.end_date|format_date }}{% endif %}</span>
+            <span>{{ job.location }}</span>
+        </div>
+        <ul>
+            {% for responsibility in position.responsibilities %}
+            <li class="responsibility">{{ responsibility|safe }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <h2>EDUCATION</h2>
+    <div class="job-header">
+        <span>{{ education.institution }}</span>
+        <span>{{ education.graduation_date|format_date }}</span>
+    </div>
+    <div class="job-subheader">
+        <span>{{ education.degree }}</span>
+        <span>{{ education.location }}</span>
+    </div>
+    {% if education.projects %}
+    <ul>
+        {% for project in education.projects %}
+        <li>{{ project }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
