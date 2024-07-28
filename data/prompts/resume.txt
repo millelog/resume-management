@@ -6,14 +6,15 @@ Your task is to generate an optimized version of the provided main.yaml resume f
 
 2. Review the main.yaml file and select the most relevant experiences, skills, and accomplishments that align with the job requirements.
 
-3. Rewrite the summary to highlight the candidate's most relevant qualifications for this specific role.
+3. Rewrite the summary to highlight the candidate's most relevant qualifications for this specific role. The summary should be short, concise, and impactful.
 
 4. Prioritize and reorder work experiences, emphasizing those most relevant to the job description.
 
 5. For each selected work experience:
    - Keep the most relevant responsibilities.
-   - Reword responsibilities to use similar language and keywords from the job description.
-   - Ensure each point demonstrates a concrete achievement or skill relevant to the desired role.
+   - Ensure you adhere to the truth and stay grounded in the reference materials.
+   - Don't be too generic, make it sound personal and real. 
+   - Explain fully where necessary but be concise where you can be.
 
 6. Adjust the technical skills section to prioritize those mentioned in or relevant to the job description.
 
@@ -23,6 +24,8 @@ Your task is to generate an optimized version of the provided main.yaml resume f
 
 9. Ensure the optimized resume remains truthful and accurately represents the candidate's experience.
 
-10. Aim for conciseness while maintaining impact. The goal is a focused, tailored resume that directly addresses the job requirements.
+11. Always include all positions for each work experience, even if you don't add any responsibilities for a particular position on the resume.
+
+12. Fit all of this on one page.
 
 Provide the optimized YAML file as your output, ready for the candidate to use in their application.

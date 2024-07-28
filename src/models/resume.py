@@ -9,25 +9,25 @@ class PersonalInfo(BaseModel):
     location: str
     github: HttpUrl
 
-class WorkExperience(BaseModel):
-    company: str
-    positions: List[dict]
-    start_date: date
-    end_date: Optional[date]
-    location: str
-    
 class Position(BaseModel):
     title: str
     start_date: Optional[date] = None
     end_date: Optional[date] = None
-    responsibilities: List[str]
+    responsibilities: Optional[List[str]] = None
+
+class WorkExperience(BaseModel):
+    company: str
+    positions: List[Position]
+    start_date: date
+    end_date: Optional[date]
+    location: str
 
 class Education(BaseModel):
     institution: str
     degree: str
     graduation_date: date
     location: str
-    projects: List[str]
+    projects: Optional[List[str]] = None
 
 class Resume(BaseModel):
     personal_info: PersonalInfo

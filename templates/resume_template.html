@@ -128,11 +128,13 @@
             <span>{{ position.title }}{% if position.start_date %} | {{ position.start_date|format_date }} – {{ position.end_date|format_date }}{% endif %}</span>
             <span>{{ job.location }}</span>
         </div>
-        <ul>
-            {% for responsibility in position.responsibilities %}
-            <li class="responsibility">{{ responsibility|safe }}</li>
-            {% endfor %}
-        </ul>
+        {% if position.responsibilities %}
+            <ul>
+                {% for responsibility in position.responsibilities %}
+                <li class="responsibility">{{ responsibility|safe }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         {% endfor %}
     </div>
     {% endfor %}
