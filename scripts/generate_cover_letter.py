@@ -14,7 +14,7 @@ from datetime import datetime
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, project_root)
 
-from src.models.cover_letter import CoverLetter
+from src.models.cover_letter import CoverLetter, JobSpecificInfo
 from src.models.resume import PersonalInfo
 
 def load_yaml(file_path):
@@ -88,7 +88,11 @@ def main():
         template = env.get_template(os.path.basename(args.template))
         
         # Render the HTML
-        html_content = template.render(content=cover_letter.content, personal_info=personal_info)
+        html_content = template.render(
+            content=cover_letter.content,
+            personal_info=personal_info,
+            job_specific_info=cover_letter.job_specific_info
+        )
         
         # Write the HTML to file
         with open(args.output, 'w') as f:
