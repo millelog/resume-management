@@ -157,7 +157,7 @@ This system includes a feature to track the source of portfolio visits originati
 - Be aware that this tracking method makes your resume tailored to each application.
 - Ensure you're comfortable with this level of tracking before using this feature.
 
-To disable this feature, you can modify the `add_tracking_filter` function in `src/utils/add_tracking.py`.
+To disable this feature, don't include the optional `app_specific_info` prop in your resume/cover letter YAML file. Alternaitvely you can modify the `add_tracking_filter` function in `src/utils/add_tracking.py`.
 
 ## Contributing
 
