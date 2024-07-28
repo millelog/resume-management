@@ -69,23 +69,25 @@ resume-management-system/
    Copy `data/resumes/main.yaml.example` to `data/resumes/main.yaml` and keep it updated with your comprehensive personal information, work experience, education, and skills. This serves as your "source of truth" for all resume variations so make it quite extensive.
 
 2. Prepare job-specific resume data:
+```plaintext
    a. Obtain the job description for the position you're applying to.
    b. Use an LLM (like ChatGPT) with the prompt found in `data/prompts/resume.txt`.
    c. Provide the LLM with the job description and your `main.yaml` content.
    d. The LLM will generate an optimized YAML for the specific job.
    e. Save this optimized YAML as `data/resumes/job_specific_resume.yaml`.
-
+```
 3. Generate your tailored resume:
    ```
    python scripts/generate_resume.py data/resumes/job_specific_resume.yaml
    ```
 
 4. Prepare job-specific cover letter data:
+```plaintext
    a. Use an LLM with the prompt found in `data/prompts/cover_letter.txt`.
    b. Provide the LLM with the job description and relevant details from your `main.yaml`.
    c. The LLM will generate cover letter content.
    d. Save this content as `data/cover_letters/job_specific_cover_letter.yaml` (see example `data/cover_letters/cover_letter.yaml.example).
-
+```
 5. Generate your tailored cover letter:
    ```
    python scripts/generate_cover_letter.py data/cover_letters/job_specific_cover_letter.yaml
@@ -96,12 +98,13 @@ resume-management-system/
    Open the generated HTML files in your browser to review. Make any necessary adjustments directly in the respective YAML files and regenerate if needed.
 
 7. Print to PDF:
+```plaintext
    a. Open the final HTML files in a web browser.
    b. Use the browser's print function (usually Ctrl+P or Cmd+P).
    c. Set the destination to "Save as PDF".
    d. Adjust margins if necessary (usually "None" works best).
    e. Save the PDF files of your resume and cover letter.
-
+```
 Your tailored resume and cover letter are now ready for submission!
 
 Note: The `data/prompts/` directory contains various prompts for different aspects of the resume and cover letter generation process. Feel free to adjust these prompts to better suit your needs or to generate other job application materials.

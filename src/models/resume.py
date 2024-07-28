@@ -7,8 +7,9 @@ class PersonalInfo(BaseModel):
     email: str
     phone: str
     location: str
-    github: Optional[HttpUrl]
-    linkedin: Optional[HttpUrl]
+    github: Optional[HttpUrl] = None
+    linkedin: Optional[HttpUrl] = None
+    portfolio: Optional[HttpUrl] = None
 
 class Position(BaseModel):
     title: str

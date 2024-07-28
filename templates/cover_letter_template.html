@@ -16,22 +16,33 @@
             max-width: 8.5in;
             margin: 0 auto;
             padding: 0;
-            font-size: 10pt;
+            font-size: 12pt;
         }
         h1 {
             color: #1F497D;
             margin: 0 0 5px 0;
-            font-size: 18pt;
+            font-size: 20pt;
+        }
+        h2 {
+            color: #1F497D;
+            font-size: 12pt;
+            border-bottom: 1px solid #1F497D;
+            margin: 5px 0 5px 0;
+            padding-bottom: 2px;
         }
         .contact-info {
             margin-bottom: 5px;
-            font-size: 11pt;
+            font-size: 14pt;
         }
         .contact-info span:not(:last-child)::after {
             content: "|";
             margin: 0 5px;
             color: #1F497D;
-        }       
+        }
+        a {
+            color: #1F497D;
+            text-decoration: none;
+        }
         hr {
             border: none;
             border-top: 1px solid #1F497D;
@@ -53,6 +64,9 @@
         {% endif %}
         {% if personal_info.linkedin %}
         <span><a href="{{ personal_info.linkedin }}">LinkedIn</a></span>
+        {% endif %}
+        {% if personal_info.portfolio %}
+        <span><a href="{{ personal_info.portfolio }}">Portfolio</a></span>
         {% endif %}
     </div>
     <hr>

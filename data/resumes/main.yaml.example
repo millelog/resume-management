@@ -5,6 +5,7 @@ personal_info:
   location: Anytown, USA
   github: https://github.com/johndoe
   linkedin: https://www.linkedin.com/in/johndoe
+  portfolio: https://example.com
 
 summary: >
   Experienced software engineer with expertise in web development and cloud technologies.
