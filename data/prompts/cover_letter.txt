@@ -11,6 +11,14 @@ Analyze the job description and candidate's experience, then:
    - Provides context or insights not apparent from the resume alone
    - Sounds natural and persuasive
    - Maintains a professional tone without being overly flowery
-4. Generate the cover letter as a YAML file with the content under the field `content: |`
+4. Generate the cover letter as a YAML file with the following structure:
 
-Aim for a compelling story that reveals new dimensions of the candidate's fit for the position. Focus on unique angles, soft skills, or specific experiences that demonstrate value beyond what's listed in the resume. Each paragraph should offer fresh insights that complement, rather than reiterate, the resume content.
+```yaml
+job_specific_info:
+  company: [Company Name]
+  job_title: [Job Title]
+
+content: |
+  [Cover Letter Content]
+```
+Aim for a compelling story that reveals new dimensions of the candidate's fit for the position. Focus on unique angles, soft skills, or specific experiences that demonstrate value beyond what's listed in the resume. Each paragraph should offer fresh insights that complement, rather than reiterate, the resume content. Remember to tailor the content to the specific job and company, using the information provided in the job description and the candidate's experience.
