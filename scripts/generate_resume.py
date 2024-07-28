@@ -13,13 +13,25 @@ sys.path.insert(0, project_root)
 from src.utils.yaml_handler import load_resume
 from src.generators.resume_generator import ResumeGenerator
 
+def get_most_recent_yaml(directory):
+    yaml_files = list(Path(directory).glob('*.yaml'))
+    if not yaml_files:
+        raise FileNotFoundError(f"No YAML files found in {directory}")
+    return max(yaml_files, key=os.path.getmtime)
+
 def main():
     parser = argparse.ArgumentParser(description="Generate an HTML resume from YAML data and open in browser.")
-    parser.add_argument("input", help="Path to the input YAML file")
+    parser.add_argument("input", nargs='?', help="Path to the input YAML file (optional)")
     parser.add_argument("-o", "--output", help="Path to the output HTML file")
     parser.add_argument("-t", "--template", default="templates/resume_template.html", 
                         help="Path to the HTML template file")
     args = parser.parse_args()
+
+    # If no input file is specified, use the most recent YAML file
+    if args.input is None:
+        resumes_dir = os.path.join(project_root, 'data', 'resumes')
+        args.input = get_most_recent_yaml(resumes_dir)
+        print(f"Using most recent resume: {args.input}")
 
     # Ensure the input file exists
     if not os.path.isfile(args.input):

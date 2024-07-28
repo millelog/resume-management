@@ -80,6 +80,8 @@ resume-management-system/
    ```
    python scripts/generate_resume.py data/resumes/job_specific_resume.yaml
    ```
+   If no file is specified, it defaults to the most recently modified YAML file in the resumes directory.
+
 
 4. Prepare job-specific cover letter data:
 ```plaintext
@@ -92,7 +94,7 @@ resume-management-system/
    ```
    python scripts/generate_cover_letter.py data/cover_letters/job_specific_cover_letter.yaml
    ```
-   If no file is specified, it defaults to the most recently added YAML file in the cover_letters directory.
+   If no file is specified, it defaults to the most recently modified YAML file in the cover_letters directory.
 
 6. Review and edit the generated HTML files:
    Open the generated HTML files in your browser to review. Make any necessary adjustments directly in the respective YAML files and regenerate if needed.
