@@ -1,5 +1,7 @@
 # Resume Management System
 
+![example resume](image.png "Example Resume")
+
 ## Overview
 
 This Resume Management System is a Python-based tool designed to generate and manage professional resumes. It allows users to maintain their resume data in a structured YAML format and generate a well-formatted HTML resume that can be easily converted to PDF.
