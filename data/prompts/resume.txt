@@ -16,8 +16,10 @@ Resume Optimization Prompt:
 
 7. Emphasize relevant education projects.
 
-8. Maintain the YAML structure and include all positions for each experience.
+8. Maintain the YAML structure and include all positions even if all responsibilities are not included.
 
-9. Fit the resume on one page.
+9. Maintain the structure of any <a> tags in the responsibilities.
+
+10. Fit the resume on one page.
 
 Provide the optimized YAML file as output.
