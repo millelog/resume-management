@@ -11,6 +11,8 @@ Analyze the job description and candidate's experience, then:
    - Provides context or insights not apparent from the resume alone
    - Sounds natural and persuasive
    - Maintains a professional tone without being overly flowery
+   - Make it less purple and more concise
+   - Skip the intro and jump right in
 4. Generate the cover letter as a YAML file with the following structure:
 
 ```yaml

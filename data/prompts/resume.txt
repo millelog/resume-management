@@ -14,11 +14,11 @@ Resume Optimization Prompt:
 
 6. Adjust technical skills to prioritize those relevant to the job.
 
-7. Emphasize relevant education projects.
+7. Do not make up any experience or skills that are not explicitly staed in the main.yaml just to match the job description.
 
 8. Maintain the YAML structure and include all positions even if all responsibilities are not included.
 
-9. Maintain the structure of any <a> tags in the responsibilities.
+9. Maintain the structure of any <a> tags in the responsibilities, and always include all personal_info.
 
 10. Fit the resume on one page.
 
